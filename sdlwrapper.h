@@ -11,6 +11,8 @@ namespace GTech  {
 
     void SDLInitialization();
     void SDLQuit();
+    void SDLDestroyWindow();
+
 
 
     SDL_Texture* SDLCreateTexture(SDL_Rect& rSize);
@@ -35,6 +37,12 @@ namespace GTech  {
     void SDLSetRenderTarget(SDL_Texture* pSDLTexture);
     void SDLUpdateScreen();
     std::pair<int, int> SDLWindowSize();
+
+
+
+    /* --- Open Gl ---- */
+    void SDLGlSwapWindow();
+
 
 }
 

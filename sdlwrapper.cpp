@@ -50,8 +50,11 @@ namespace GTech {
         if (!pWindow){
             std::cerr << "SDL CreateWindow failed. \n";
             SDL_assert(false);
-            xContext = SDL_GL_CreateContext(pWindow);
+            
         }
+        /* Create Context */
+        xContext = SDL_GL_CreateContext(pWindow);
+        
         pRenderer = nullptr;
         pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_TARGETTEXTURE);
         if (!pRenderer){
@@ -62,9 +65,7 @@ namespace GTech {
 
         auto imageFlags = 0;
 
-#ifdef PNG_FORMAT_SHOULD_BE_USED
         imageFlags |= IMG_INIT_PNG;
-#endif
 #ifdef JPG_FORMAT_SHOULD_BE_USED
         imageFlags |= IMG_INIT_JPG;
 #endif
@@ -151,6 +152,17 @@ namespace GTech {
 
     }
 
+    void SDLGlSwapWindow(){
+        SDL_GL_SwapWindow(pWindow);
+    }
+
+
+    void SDLDestroyWindow(){
+
+        SDL_GL_DeleteContext(xContext);
+        SDL_DestroyWindow(pWindow);
+
+    }
     void SDLQuit()
     {
         SDL_Quit();
