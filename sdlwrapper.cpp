@@ -32,12 +32,15 @@ namespace GTech {
             SDL_assert(false);
         }
 
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,3);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,24);
+        SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,1);
+        
+        
         pWindow = nullptr;
         pWindow = SDL_CreateWindow(
                 "[ SDL :-+-: GL :-+-: Context ]",
@@ -47,6 +50,7 @@ namespace GTech {
                 WindowHeight,
                 SDL_WINDOW_OPENGL
         );
+
         if (!pWindow){
             std::cerr << "SDL CreateWindow failed. \n";
             SDL_assert(false);
@@ -84,6 +88,8 @@ namespace GTech {
             std::cerr << "IMG_Init failed. \n";
             SDL_assert(false);
         }
+
+
     }
 
     SDL_Texture* SDLCreateTextureFromSurface(SDL_Surface* pSurface) {
