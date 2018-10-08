@@ -22,7 +22,7 @@ namespace GTech {
         return SDL_CreateTexture(pRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, rSize.w, rSize.h);
     }
 
-    void SDLInitialization() {
+    void SDLInitialization(unsigned int GLMAJOR, unsigned int GLMINOR) {
         constexpr int WindowWidth = 1200;
         constexpr int WindowHeight = 800;
 
@@ -37,8 +37,8 @@ namespace GTech {
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,24);
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,2);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,1);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,GLMAJOR);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,GLMINOR);
         
         
         pWindow = nullptr;

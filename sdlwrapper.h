@@ -9,7 +9,7 @@
 
 namespace GTech  {
 
-    void SDLInitialization();
+    void SDLInitialization(unsigned int GLMAJOR = 2, unsigned int GLMINOR = 1);
     void SDLQuit();
     void SDLDestroyWindow();
 
