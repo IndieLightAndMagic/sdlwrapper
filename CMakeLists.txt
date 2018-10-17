@@ -1,9 +1,9 @@
 #CMAKE TO MAKE A STATIC LIBRARY
 #HEADER
 cmake_minimum_required(VERSION 3.9.0 FATAL_ERROR)
-set(CMAKE_VERBOSE_MAKEFILE ON)
 set(TARGET_NAME sdlwrapper)
 project(${TARGET_NAME})
+set(CMAKE_VERBOSE_MAKEFILE TRUE)
 set(CMAKE_CXX_STANDARD 17)
 
 #Installation directory 
@@ -13,6 +13,7 @@ set(GTECH_DIR_INC ${GTECH_DIR}/3rd/include/SDLWrapper)
 
 #DIRECTORIES
 get_filename_component(ROOT_DIR "." ABSOLUTE)
+message(STATUS "-----------------------------")
 message(STATUS "SYSTEM NAME: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "ROOT_DIR: ${ROOT_DIR}")
 message(STATUS "CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
@@ -23,17 +24,25 @@ message(STATUS "-----------------------------")
 set(GLM_DIR "${GTECH_DIR}/GLM")
 
 #SDL
-set(SDL2_DIR ${GTECH_DIR}/SDL/include)
+set(SDL2_DIR ${CMAKE_SOURCE_DIR}/3rd/include)
 
 add_library(${TARGET_NAME} STATIC
  
     sdlwrapper.cpp 
 
 )
-target_include_directories(${TARGET_NAME} PUBLIC 
-    ${GLM_DIR}
-    ${SDL2_DIR}
+set(INC_DIR_SET 
+	${GLM_DIR}
+	${SDL2_DIR}
 )
+
+target_include_directories(${TARGET_NAME} PUBLIC 
+	${INC_DIR_SET}    
+)
+message(STATUS "-----------------------------")
+message(STATUS "INCLUDE_DIRECTORIES: ${INC_DIR_SET}")
+message(STATUS "-----------------------------")
+
 
 file(MAKE_DIRECTORY ${GTECH_DIR_LIB})
 file(MAKE_DIRECTORY ${GTECH_DIR_INC})

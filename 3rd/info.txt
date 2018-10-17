@@ -1,0 +1,23 @@
+## UPDATE SDL2 Manually
+
+SDL2: git@github.com:spurious/SDL-mirror.git (fetch) @ afeced9c7
+
+$> git clone git@github.com:spurious/SDL-mirror.git SDL
+$> cd SDL
+$> mkdir m
+$> cmake .. -G"Xcode"
+$> open SDL2.xcodeproj
+
+#Compile the whole project in xcode.
+
+
+#Copy to SDLWrapper/3rd/include 
+$> cp -R ../include/* $GTECH_ROOT/SDLWrapper/3rd/include/SDL2/
+$> cp -R include/* $GTECH_ROOT/SDLWrapper/3rd/include/SDL2/
+
+$> cp -R Debug/*.a $GTECH_ROOT/SDLWrapper/3rd/lib
+
+
+
+## INSTALL SDL_image
+
