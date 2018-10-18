@@ -29,7 +29,6 @@ set(SDL2_DIR ${CMAKE_SOURCE_DIR}/3rd/include)
 add_library(${TARGET_NAME} STATIC
     ${CMAKE_SOURCE_DIR}/sdlwrapper.cpp 
 )
-target_link_libraries(${TARGET_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/3rd/lib/libSDL2d.a)
 set(INC_DIR_SET 
 	${GLM_DIR}
 	${SDL2_DIR}
@@ -50,7 +49,7 @@ file(MAKE_DIRECTORY ${GTECH_DIR_INC})
 
 #POST BUILD COMMANDS 
 add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-	COMMAND ${CMAKE_AR} qc lib${TARGET_NAME}.a ${CMAKE_BINARY_DIR}/CMakeFiles/sdlwrapper.dir/sdlwrapper.cpp.o ${CMAKE_SOURCE_DIR}/3rd/lib/libSDL2d.a      
+	COMMAND ${CMAKE_AR} qc lib${TARGET_NAME}.a ${CMAKE_BINARY_DIR}/CMakeFiles/sdlwrapper.dir/sdlwrapper.cpp.o ${CMAKE_SOURCE_DIR}/3rd/lib/libSDL2.a ${CMAKE_SOURCE_DIR}/3rd/lib/libSDL_image.a    
 	COMMAND ${CMAKE_RANLIB} lib${TARGET_NAME}.a  
 	COMMAND ${CMAKE_COMMAND} -E copy lib${TARGET_NAME}.a ${GTECH_DIR_LIB}
 	COMMAND ${CMAKE_COMMAND} -E copy ${ROOT_DIR}/*.h ${GTECH_DIR_INC}	
