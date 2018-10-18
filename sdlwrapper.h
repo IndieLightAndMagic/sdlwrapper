@@ -2,6 +2,7 @@
 #define __SDLWRAPPER_H__
 
 #include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 #include <SDL2/SDL.h>
 #include <utility>
 #include <tuple>
