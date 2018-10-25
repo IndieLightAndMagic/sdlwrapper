@@ -39,7 +39,18 @@ namespace GTech  {
     void SDLUpdateScreen();
     std::pair<int, int> SDLWindowSize();
 
-
+    /**
+     * @brief      Get the current value of the high resolution counter.
+     *
+     * @return     An unsigned int with the current value of the counter.
+     */
+    Uint64 SDLGetPerformanceCounter();
+    /**
+     * @brief      Get the number of milliseconds since the SDL library initialization.
+     *
+     * @return     An unsigned 32 bit number, with the number of ticks since the library was initialized.
+     */
+    Uint32 SDLGetTicks();
 
     /* --- Open Gl ---- */
     void SDLGlSwapWindow();

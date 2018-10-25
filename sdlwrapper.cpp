@@ -158,6 +158,14 @@ namespace GTech {
 
     }
 
+    Uint64 SDLGetPerformaceCounter(){
+        return SDL_GetPerformanceCounter();
+    }
+
+    Uint32 SDLGetTicks(){
+        return SDL_GetTicks();
+    }
+
     void SDLGlSwapWindow(){
         SDL_GL_SwapWindow(pWindow);
     }
