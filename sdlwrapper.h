@@ -40,6 +40,12 @@ namespace GTech  {
     std::pair<int, int> SDLWindowSize();
 
     /**
+     * @brief      Get the count per second of the high resolution counter.
+     *
+     * @return     The number of ticks counted with the high resolution counter.
+     */
+    Uint64 SDLGetPerformanceFrequency();
+    /**
      * @brief      Get the current value of the high resolution counter.
      *
      * @return     An unsigned int with the current value of the counter.

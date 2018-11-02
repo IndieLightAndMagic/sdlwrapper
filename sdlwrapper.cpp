@@ -157,8 +157,12 @@ namespace GTech {
         return p;
 
     }
+    
+    Uint64 SDLGetPerformanceFrequency(){
+        return SDL_GetPerformanceFrequency();
+    }
 
-    Uint64 SDLGetPerformaceCounter(){
+    Uint64 SDLGetPerformanceCounter(){
         return SDL_GetPerformanceCounter();
     }
 
